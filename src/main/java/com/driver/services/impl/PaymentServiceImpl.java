@@ -42,7 +42,6 @@ public class PaymentServiceImpl implements PaymentService {
         //make payment and set parameters
         Payment payment = new Payment();
         payment.setPaymentCompleted(true);
-
         PaymentMode paymentMode = PaymentMode.valueOf(mode);
         payment.setPaymentMode(paymentMode);
         payment.setReservation(reservation);
