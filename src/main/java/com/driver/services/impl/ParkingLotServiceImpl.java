@@ -43,10 +43,12 @@ public class ParkingLotServiceImpl implements ParkingLotService {
         else{
             spotType = SpotType.OTHERS;
         }
+
         spot.setSpotType(spotType);
         spot.setOccupied(false);
         spot.setPricePerHour(pricePerHour);
         spot.setParkingLot(parkingLot);
+        spot.setReservationList(new ArrayList<>());
 //        parkingLot.getSpotList().add(spot);
         List<Spot> spots = parkingLot.getSpotList();
         if(spots==null){
