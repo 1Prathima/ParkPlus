@@ -46,9 +46,9 @@ public class ReservationServiceImpl implements ReservationService {
         //check for available spots and assign
         Spot spot = null;
         int min = Integer.MAX_VALUE;
-        for(Spot spot1 : parkingLot.getSpots()){
+        for(Spot spot1 : parkingLot.getSpotList()){
             if(numberOfWheels==2){
-                if(spot1.isOccupied()==false && spot1.getPricePerHour()<min &&
+                if(spot1.getOccupied()==false && spot1.getPricePerHour()<min &&
                         (spot1.getSpotType().equals(SpotType.TWO_WHEELER) ||
                          spot1.getSpotType().equals(SpotType.FOUR_WHEELER) ||
                          spot1.getSpotType().equals(SpotType.OTHERS))){
@@ -57,7 +57,7 @@ public class ReservationServiceImpl implements ReservationService {
                 }
             }
             else if(numberOfWheels==4){
-                if(spot1.isOccupied()==false && spot1.getPricePerHour()<min &&
+                if(spot1.getOccupied()==false && spot1.getPricePerHour()<min &&
                         (spot1.getSpotType().equals(SpotType.FOUR_WHEELER) ||
                          spot1.getSpotType().equals(SpotType.OTHERS))){
                     min = spot1.getPricePerHour();
@@ -65,7 +65,7 @@ public class ReservationServiceImpl implements ReservationService {
                 }
             }
             else{
-                if(spot1.isOccupied()==false && spot1.getPricePerHour()<min &&
+                if(spot1.getOccupied()==false && spot1.getPricePerHour()<min &&
                         (spot1.getSpotType().equals(SpotType.OTHERS))){
                     min = spot1.getPricePerHour();
                     spot = spot1;
@@ -84,8 +84,8 @@ public class ReservationServiceImpl implements ReservationService {
         reservation.setUser(user);
 
         spot.setOccupied(true);
-        spot.getReservations().add(reservation);
-        user.getReservations().add(reservation);
+        spot.getReservationList().add(reservation);
+        user.getReservationList().add(reservation);
 
         return reservationRepository3.save(reservation);  //saving reservation
     }

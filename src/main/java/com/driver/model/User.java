@@ -13,7 +13,7 @@ public class User {
     private String password;
     private String phoneNumber;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    List<Reservation> reservations = new ArrayList<>();
+    List<Reservation> reservationList = new ArrayList<>();
 
     public User() {
     }
@@ -57,11 +57,11 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public List<Reservation> getReservations() {
-        return reservations;
+    public List<Reservation> getReservationList() {
+        return reservationList;
     }
 
-    public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
+    public void setReservationList(List<Reservation> reservationList) {
+        this.reservationList = reservationList;
     }
 }

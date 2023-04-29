@@ -18,7 +18,7 @@ public class Spot {
     ParkingLot parkingLot;
 
     @OneToMany(mappedBy = "spot", cascade = CascadeType.ALL)
-    List<Reservation> reservations = new ArrayList<>();
+    List<Reservation> reservationList = new ArrayList<>();
 
     public Spot() {
     }
@@ -46,7 +46,7 @@ public class Spot {
         this.spotType = spotType;
     }
 
-    public boolean isOccupied() {
+    public boolean getOccupied() {
         return occupied;
     }
 
@@ -70,11 +70,11 @@ public class Spot {
         this.parkingLot = parkingLot;
     }
 
-    public List<Reservation> getReservations() {
-        return reservations;
+    public List<Reservation> getReservationList() {
+        return reservationList;
     }
 
-    public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
+    public void setReservationList(List<Reservation> reservationList) {
+        this.reservationList = reservationList;
     }
 }
