@@ -17,7 +17,8 @@ public class Reservation {
     @JoinColumn
     User user;
 
-    @OneToOne(mappedBy = "reservation", cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn
     Payment payment;
 
     public Reservation() {
