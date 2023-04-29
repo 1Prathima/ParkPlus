@@ -43,16 +43,7 @@ public class PaymentServiceImpl implements PaymentService {
         Payment payment = new Payment();
         payment.setPaymentCompleted(true);
 
-        PaymentMode paymentMode;
-        if(mode.equals("CASH")){
-            paymentMode = PaymentMode.CASH;
-        }
-        else if(mode.equals("CARD")){
-            paymentMode = PaymentMode.CARD;
-        }
-        else{
-            paymentMode = PaymentMode.UPI;
-        }
+        PaymentMode paymentMode = PaymentMode.valueOf(mode);
         payment.setPaymentMode(paymentMode);
         payment.setReservation(reservation);
 
