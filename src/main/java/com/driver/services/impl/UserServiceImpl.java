@@ -23,6 +23,7 @@ public class UserServiceImpl implements UserService {
         User user = userRepository4.findById(userId).get();
         user.setPassword(password);
         return user;
+
     }
 
     @Override
